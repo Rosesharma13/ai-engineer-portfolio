@@ -39,7 +39,7 @@ export default function Experience() {
           <div key={idx} className="bg-slate-900/50 border border-slate-800/80 p-6 rounded-lg">
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-2">
               <h3 className="text-lg font-bold text-slate-100">{job.role}</h3>
-              <span className="text-xs text-blue-500 font-semibold">{job.date}</span>
+              <span className="text-xs text-olive-500 font-semibold">{job.date}</span>
             </div>
             <p className="text-sm text-slate-300 font-medium">{job.org}</p>
             <p className="text-xs text-slate-500 mb-3">{job.meta}</p>
