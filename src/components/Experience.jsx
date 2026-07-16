@@ -25,7 +25,7 @@ const experience = [
     meta: "Remote · AICTE & ICAC Approved · Certificate & LOR",
     date: "April 2026 – May 2026",
     points: [
-      "Built a Twitter Sentiment Analysis tool (Naive Bayes + SVM, TF-IDF) achieving 100% accuracy on a 3-class NLP task, and developed an end-to-end Customer Churn pipeline."
+      "Built a Twitter Sentiment Analysis tool (Naive Bayes + SVM, TF-IDF) for 3-class sentiment classification, and developed an end-to-end Customer Churn pipeline."
     ]
   }
 ];
