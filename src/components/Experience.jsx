@@ -7,7 +7,8 @@ const experience = [
     meta: "Remote · AICTE Recognized",
     date: "June 2026 – July 2026",
     points: [
-      "Selected for Lenovo-BharatCares CSR program under AICTE and Skill India, covering RAG pipelines, autonomous AI agents, and GenAI development with Skill India certification."
+      "Selected for Lenovo-BharatCares CSR program under AICTE and Skill India, covering RAG pipelines, autonomous AI agents, and GenAI development with Skill India certification.",
+      "Built Vyrora AI, a multi-agent AI platform, using FastAPI and React, deployed across Render and Vercel."
     ]
   },
   {
