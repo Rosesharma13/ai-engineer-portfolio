@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,16 +6,16 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #100f0a;
+    background-color: #fdfcf8;
   }
   body {
-    @apply text-sand-100 antialiased overflow-x-hidden font-sans;
+    @apply text-ink-900 antialiased overflow-x-hidden font-sans;
   }
   ::selection {
-    @apply bg-moss-600 text-ink-950;
+    @apply bg-olive-300 text-ink-900;
   }
   a:focus-visible, button:focus-visible {
-    outline: 2px solid #8ba24f;
+    outline: 2px solid #7f8f45;
     outline-offset: 2px;
   }
 }
