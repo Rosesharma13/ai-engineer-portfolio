@@ -29,7 +29,10 @@ export default async function handler(req, res) {
   const { message } = req.body;
   const CLAUDE_API_KEY = process.env.ANTHROPIC_API_KEY;
 
-  if (!CLAUDE_API_KEY) return res.status(500).json({ error: 'Key configuration missing.' });
+  if (!CLAUDE_API_KEY) {
+    console.error('Missing ANTHROPIC_API_KEY env var');
+    return res.status(500).json({ error: 'Key configuration missing.', reply: "Configuration error: API key not set." });
+  }
 
   try {
     const response = await fetch('https://api.anthropic.com/v1/messages', {
@@ -46,9 +49,26 @@ export default async function handler(req, res) {
         messages: [{ role: 'user', content: message }]
       })
     });
+
     const data = await response.json();
-    return res.status(200).json({ reply: data.content[0].text });
+
+    if (!response.ok) {
+      console.error('Anthropic API error:', JSON.stringify(data));
+      return res.status(response.status).json({
+        error: data?.error?.message || 'Anthropic API error',
+        reply: `API error: ${data?.error?.message || 'unknown — check server logs'}`
+      });
+    }
+
+    const replyText = data?.content?.[0]?.text;
+    if (!replyText) {
+      console.error('Unexpected response shape:', JSON.stringify(data));
+      return res.status(500).json({ error: 'No text in response', reply: "Received an unexpected response format." });
+    }
+
+    return res.status(200).json({ reply: replyText });
   } catch (error) {
-    return res.status(500).json({ error: 'Failed to connect to LLM.' });
+    console.error('Handler exception:', error.message);
+    return res.status(500).json({ error: error.message, reply: `Server error: ${error.message}` });
   }
 }
