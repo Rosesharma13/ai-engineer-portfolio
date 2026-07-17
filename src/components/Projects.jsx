@@ -41,31 +41,38 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 px-6 max-w-6xl mx-auto border-t border-ink-700">
-      <h2 className="font-display text-3xl text-sand-100 mb-12">Projects</h2>
+    <section id="projects" className="py-20 px-6 max-w-6xl mx-auto border-t border-paper-300">
+      <motion.h2
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="font-display text-3xl text-ink-900 mb-12"
+      >
+        Projects
+      </motion.h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {projects.map((proj, idx) => (
           <motion.div
             key={idx}
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, delay: idx * 0.05 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5, delay: idx * 0.06 }}
             whileHover={{ y: -3 }}
-            className="bg-ink-900 border border-ink-700 hover:border-moss-600 p-6 rounded-lg flex flex-col justify-between transition-colors"
+            className="bg-white border border-paper-300 hover:border-olive-400 p-6 rounded-lg flex flex-col justify-between transition-colors shadow-sm"
           >
             <div>
-              <h3 className="text-lg font-semibold text-sand-100 mb-2">{proj.title}</h3>
-              <p className="text-sm text-sand-500 mb-4 leading-relaxed">{proj.desc}</p>
+              <h3 className="text-lg font-semibold text-ink-900 mb-2">{proj.title}</h3>
+              <p className="text-sm text-ink-500 mb-4 leading-relaxed">{proj.desc}</p>
               <div className="flex flex-wrap gap-2 mb-6">
                 {proj.tech.map((t, i) => (
-                  <span key={i} className="font-mono text-[11px] text-moss-400 border border-ink-700 px-2 py-1 rounded">{t}</span>
+                  <span key={i} className="font-mono text-[11px] text-olive-700 bg-olive-50 border border-olive-100 px-2 py-1 rounded">{t}</span>
                 ))}
               </div>
             </div>
             <div className="flex gap-5 font-mono text-xs uppercase tracking-wide">
-              <a href={proj.link} target="_blank" rel="noreferrer" className="text-sand-300 hover:text-moss-400 transition-colors">Code ↗</a>
-              <a href={proj.live} target="_blank" rel="noreferrer" className="text-sand-500 hover:text-moss-400 transition-colors">Live ↗</a>
+              <a href={proj.link} target="_blank" rel="noreferrer" className="text-ink-700 hover:text-olive-600 transition-colors">Code ↗</a>
+              <a href={proj.live} target="_blank" rel="noreferrer" className="text-ink-500 hover:text-olive-600 transition-colors">Live ↗</a>
             </div>
           </motion.div>
         ))}
