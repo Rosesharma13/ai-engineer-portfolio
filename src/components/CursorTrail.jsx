@@ -31,8 +31,8 @@ export default function CursorTrail() {
 
   return (
     <>
-      <motion.div className="fixed top-0 left-0 w-3 h-3 bg-moss-400 rounded-full pointer-events-none z-50 mix-blend-screen hidden md:block" style={{ x: cursorX, y: cursorY }} />
-      <motion.div className="fixed top-0 left-0 w-7 h-7 border border-moss-500 rounded-full pointer-events-none z-50 mix-blend-screen hidden md:block" style={{ x: trailX, y: trailY, left: -8, top: -8 }} />
+      <motion.div className="fixed top-0 left-0 w-3 h-3 bg-olive-500/60 rounded-full pointer-events-none z-50 hidden md:block" style={{ x: cursorX, y: cursorY }} />
+      <motion.div className="fixed top-0 left-0 w-7 h-7 border border-olive-400/50 rounded-full pointer-events-none z-50 hidden md:block" style={{ x: trailX, y: trailY, left: -8, top: -8 }} />
     </>
   );
 }
